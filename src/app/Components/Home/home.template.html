@@ -1,0 +1,159 @@
+<div>
+    <div *ngIf="viewTypeOptions.ViewSearch">
+        <div class="container">
+            <div class="row justify-content-center p-4">
+                <div class="col col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                    <div *ngIf="viewTypeOptions.ViewMainList" class="text-center p-2">
+                        <img width="300px" src="https://teknoseyir.com/wp-content/uploads/2013/07/ts-podcast111111.jpg" class="img-thumbnail rounded"
+                            alt="TeknoSeyir Haftalık Gündem Değerlendirmeleri">
+                    </div>
+                    <div class="form-group">
+                        <input (keyup)="ChangeSearchInput($event)" type="text" class="form-control" placeholder="Arama yapmak için bir şeyler yazın...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="viewTypeOptions.ViewMainList">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-5">
+                    <button (click)="GoToViewPodcastList(member.yearText)" *ngFor="let member of viewMainListOptions.yearList" type="button"
+                        class="btn btn-secondary alert-secondary btn-block">
+                        <span>
+                            <span class="float-left">{{member.yearText}}</span>
+                            <span class="badge badge-secondary float-right">Toplam : {{member.yearCount}}</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="viewTypeOptions.ViewPodcastList">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-5">
+                    <button (click)="GoToViewMainList()" type="button" class="btn btn-info alert-info btn-block">
+                        <span>
+                            <span class="float-center">Geri</span>
+                        </span>
+                    </button>
+                    <div class="p-3">
+                        &nbsp;
+                        <div class="float-right" style="font-size:13px;">
+                            Bulunan Sonuç : {{viewPodcastListOptions.podcastList.length}}
+                        </div>
+                    </div>
+                    <div class="alert alert-secondary" role="alert" *ngFor="let member of viewPodcastListOptions.podcastList">
+                        <span style="font-size:13px;font-weight:bold;">Başlık : </span>
+                        <span style="font-size:13px;">{{member.titlePodcast}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Yıl : </span>
+                        <span style="font-size:13px;">{{member.year}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Sayı : </span>
+                        <span style="font-size:13px;">{{member.count}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Toplam Sayı : </span>
+                        <span style="font-size:13px;">{{member.totalCount}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Yüklenme Tarihi : </span>
+                        <span style="font-size:13px;">{{member.uploadDate}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">İçerik Sayısı : </span>
+                        <span style="font-size:13px;">{{member.content.length}}</span>
+                        <br>
+                        <br>
+                        <button (click)="GoToViewPodcastDetails(member.totalCount)" class="btn btn-secondary btn-block">
+                            <span>Detay</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="viewTypeOptions.ViewDetails">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col col-lg-8 col-md-12 col-sm-12 col-xs-12 mb-5">
+                    <button (click)="BackToViewPodcastList()" type="button" class="btn btn-info alert-info btn-block">
+                        <span>
+                            <span class="float-center">Geri</span>
+                        </span>
+                    </button>
+                    <div>&nbsp;</div>
+                    <div class="alert alert-secondary" role="alert">
+                        <div (click)="PlayPodcast(viewPodcastDetailsOptions.podcast)" class="rounded-circle text-center btn btn-info float-right">Başlat</div>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Başlık : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.titlePodcast}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Yıl : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.year}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Sayı : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.count}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Toplam Sayı : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.totalCount}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Yüklenme Tarihi : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.uploadDate}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Başlangıç Tarihi : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.rangeFirstDate}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Bitiş Tarihi : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.rangeLastDate}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Açıklama : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.explanationPodcast}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Site Linki : </span>
+                        <a href="{{viewPodcastDetailsOptions.podcast.siteLink}}" target="_blank" class="badge badge-danger m-1">TeknoSeyir</a>
+                        <span *ngIf="viewPodcastDetailsOptions.podcast.videoLink != '#'">
+                            <br>
+                            <span style="font-size:13px;font-weight:bold;">Video Linki : </span>
+                            <a href="{{viewPodcastDetailsOptions.podcast.videoLink}}" target="_blank" class="badge badge-danger m-1">YouTube</a>
+                        </span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Podcast Linki : </span>
+                        <a href="{{viewPodcastDetailsOptions.podcast.podcastLink}}" target="_blank" class="badge badge-success m-1">Ses Dosyası</a>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">İçerik Sayısı : </span>
+                        <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.content.length}}</span>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="text-center">
+                        <span class="badge badge-pill badge-secondary">Ses Dosyası</span>
+                    </div>
+                    <div class="alert alert-secondary" role="alert">
+                        <audio class="btn-block rounded" controls src={{viewPodcastDetailsOptions.podcast.podcastLink}}></audio>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="text-center">
+                        <span class="badge badge-pill badge-secondary">İçerik Listesi</span>
+                    </div>
+                    <div class="alert alert-secondary" role="alert" *ngFor="let member of viewPodcastDetailsOptions.podcast.content">
+                        <span style="font-size:13px;font-weight:bold;">{{member.contentText}}</span>
+                        <br>
+                        <a *ngFor="let link of member.contentLink" href="{{link}}" target="_blank" class="badge badge-info m-1">Link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="viewTypeOptions.ViewMediaPlayer" class="mt-5">
+        <br>
+        <div class="alert bg-danger btn-block text-center fixed-bottom mb-0" style="color:white;font-size:12px;">
+            <div class="float-right mb-1">
+                <button (click)="GoToViewPodcastDetails(viewMediaPlayerOptions.podcast.totalCount)" *ngIf="viewMediaPlayerOptions.mediaPlayerTitle"
+                    class="btn btn-secondary btn-sm">Detay Sayfası</button>
+                <button (click)="StopPodcast()" *ngIf="viewMediaPlayerOptions.mediaPlayerTitle" class="btn btn-secondary btn-sm">x</button>
+            </div>
+            <span *ngIf="!viewMediaPlayerOptions.mediaPlayerTitle">Podcast Seçilmedi !</span>
+            <span>{{viewMediaPlayerOptions.mediaPlayerTitle}}</span>
+            <audio *ngIf="viewMediaPlayerOptions.mediaPlayerTitle" autoplay class="btn-block rounded" controls src={{viewMediaPlayerOptions.podcast.podcastLink}}></audio>
+        </div>
+    </div>
+</div>
