@@ -111,6 +111,8 @@ export class HomeComponent implements OnInit {
             let podcastList = member.list as Array<PodcastModel>;
             this.prevPodcastButtonDisplay = podcastList.filter(x => x.totalCount == totalCount - 1).length > 0 ? true : false;
             this.nextPodcastButtonDisplay = podcastList.filter(x => x.totalCount == totalCount + 1).length > 0 ? true : false;
+
+            this.ScrollTop();
         });
     }
 
@@ -134,6 +136,11 @@ export class HomeComponent implements OnInit {
         let seconds = Math.floor((timeSeconds % (60 * 60)) % 60);
 
         return hour.toString() + " saat " + minute.toString() + " dakika " + seconds.toString() + " saniye";
+    }
+
+    private ScrollTop() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
 
 }
