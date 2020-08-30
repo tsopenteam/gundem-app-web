@@ -122,6 +122,9 @@
                         <br>
                         <span style="font-size:13px;font-weight:bold;">İçerik Sayısı : </span>
                         <span style="font-size:13px;">{{viewPodcastDetailsOptions.podcast.content.length}}</span>
+                        <br>
+                        <span style="font-size:13px;font-weight:bold;">Podcast Süresi : </span>
+                        <span style="font-size:13px;">{{GetTimeDisplay(viewPodcastDetailsOptions.podcast.podcastTime)}}</span>
                     </div>
                     <div>&nbsp;</div>
                     <div class="text-center">
@@ -137,6 +140,8 @@
         </div>
     </div>
     <div *ngIf="viewTypeOptions.ViewMediaPlayer" class="mt-5">
+        <br>
+        <br>
         <br>
         <div class="alert bg-danger btn-block text-center fixed-bottom mb-0" style="color:white;font-size:12px;">
             <div class="float-right mb-1">

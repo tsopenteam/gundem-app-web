@@ -121,4 +121,12 @@ export class HomeComponent implements OnInit {
         this.viewMediaPlayerOptions.podcast = new PodcastModel();
     }
 
+    private GetTimeDisplay(timeSeconds: number) {
+        let hour = Math.floor(timeSeconds / (60 * 60));
+        let minute = Math.floor((timeSeconds % (60 * 60)) / 60);
+        let seconds = Math.floor((timeSeconds % (60 * 60)) % 60);
+
+        return hour.toString() + " saat " + minute.toString() + " dakika " + seconds + " saniye";
+    }
+
 }

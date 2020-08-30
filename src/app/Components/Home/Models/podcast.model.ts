@@ -10,6 +10,7 @@ export class PodcastModel {
     siteLink: string;
     rangeFirstDate: string;
     rangeLastDate: string;
+    podcastTime: number;
     titlePodcast: string;
     explanationPodcast: string;
     content: Array<ContentModel>;
