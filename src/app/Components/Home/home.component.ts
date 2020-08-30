@@ -143,4 +143,9 @@ export class HomeComponent implements OnInit {
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
 
+    private ScrollBottom() {
+        document.body.scrollTop = document.body.scrollHeight; // For Safari
+        document.documentElement.scrollTop = document.documentElement.scrollHeight; // For Chrome, Firefox, IE and Opera
+    }
+
 }
