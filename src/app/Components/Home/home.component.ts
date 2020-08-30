@@ -126,7 +126,7 @@ export class HomeComponent implements OnInit {
         let minute = Math.floor((timeSeconds % (60 * 60)) / 60);
         let seconds = Math.floor((timeSeconds % (60 * 60)) % 60);
 
-        return hour.toString() + " saat " + minute.toString() + " dakika " + seconds + " saniye";
+        return hour.toString() + " saat " + minute.toString() + " dakika " + seconds.toString() + " saniye";
     }
 
 }
