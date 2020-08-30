@@ -2,24 +2,24 @@
 
 ### TeknoSeyir Haftalık Gündem Değerlendirmeleri
 
-> teknoseyir.com
+> [teknoseyir.com](https://teknoseyir.com)
 
-### Demo Link
+### Link
 
-[Haftalık Gündem Demo Link](https://tsopenteam.github.io/gundem)
+[Haftalık Gündem Link](https://tsopenteam.github.io/gundem)
 
-[Bilim Gündem Demo Link](https://tsopenteam.github.io/bilim)
+[Bilim Gündem Link](https://tsopenteam.github.io/bilim)
 
-### Kullanımı
+### Projenin local' de çalıştırılması
 
-```
-$ git clone https://github.com/tsopenteam/gundem-app-web
+```bash
+git clone https://github.com/tsopenteam/gundem-app-web
 
-$ cd gundem-app-web
+cd gundem-app-web
 
-$ npm install
+npm install
 
-$ ng serve
+ng serve
 
 -- Open browser url link localhost:4200
 ```
