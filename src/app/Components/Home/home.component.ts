@@ -30,6 +30,9 @@ export class HomeComponent implements OnInit {
         podcast: new PodcastModel()
     };
 
+    public prevPodcastButtonDisplay: boolean = false;
+    public nextPodcastButtonDisplay: boolean = false;
+
     constructor(
         private _homeService: HomeService,
         private _homeDataService: HomeDataService
@@ -104,6 +107,10 @@ export class HomeComponent implements OnInit {
         this.viewPodcastDetailsOptions.podcast = new PodcastModel();
         this._homeService.GetAllData().subscribe(member => {
             this.viewPodcastDetailsOptions.podcast = this._homeDataService.GetPodcast(member.list, totalCount);
+
+            let podcastList = member.list as Array<PodcastModel>;
+            this.prevPodcastButtonDisplay = podcastList.filter(x => x.totalCount == totalCount - 1).length > 0 ? true : false;
+            this.nextPodcastButtonDisplay = podcastList.filter(x => x.totalCount == totalCount + 1).length > 0 ? true : false;
         });
     }
 
